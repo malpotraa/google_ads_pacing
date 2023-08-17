@@ -42,7 +42,7 @@ function main() {
         if (campaignId) {
           // Get the campaign by ID
           var campaignIterator = AdsApp.campaigns()
-            .withIds([campaignId])
+            .withIds([campaignId]).withCondition('Status = ENABLED') // Only active campaigns
             .get();
           if (campaignIterator.hasNext()) {
             var campaign = campaignIterator.next();
